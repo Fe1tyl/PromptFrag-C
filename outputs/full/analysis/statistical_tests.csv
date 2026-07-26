@@ -1,0 +1,7 @@
+test,model,pretrained,metric,n_conditions,n_prompts,statistic,p_value,effect_name,effect_size
+Friedman matched-condition prompt effect,RN50,openai,accuracy,75,12,689.1169230769233,1.1605941215004163e-140,Kendall_W,0.8352932400932404
+Friedman matched-condition prompt effect,RN50,openai,ece,75,12,191.6748717948717,3.9540246203429924e-35,Kendall_W,0.23233317793317781
+Friedman matched-condition prompt effect,RN50,openai,aurc,75,12,655.0246153846156,2.3381345585135766e-133,Kendall_W,0.793969230769231
+Friedman matched-condition prompt effect,ViT-B-32,openai,accuracy,75,12,503.7799906716417,5.011346813140986e-101,Kendall_W,0.6106424129353233
+Friedman matched-condition prompt effect,ViT-B-32,openai,ece,75,12,642.0317948717948,1.4164179879747307e-130,Kendall_W,0.7782203574203573
+Friedman matched-condition prompt effect,ViT-B-32,openai,aurc,75,12,527.3569230769231,4.67008972290813e-106,Kendall_W,0.6392205128205128

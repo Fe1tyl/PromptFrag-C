@@ -1,0 +1,8 @@
+model,pretrained,policy,selected_prompt_id,n_held_out_corruptions
+RN50,openai,clean_selected,p04,15
+RN50,openai,default,p00,15
+RN50,openai,stability_loco,p06,2
+RN50,openai,stability_loco,p10,13
+ViT-B-32,openai,clean_selected,p03,15
+ViT-B-32,openai,default,p00,15
+ViT-B-32,openai,stability_loco,p03,15

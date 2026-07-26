@@ -1,0 +1,11 @@
+# Install torch and torchvision from the CUDA 12.8 PyTorch index first.
+open_clip_torch>=3.2,<4
+numpy>=2.0,<3
+pandas>=2.2,<4
+scipy>=1.14,<2
+matplotlib>=3.9,<4
+seaborn>=0.13,<1
+Pillow>=10,<13
+tqdm>=4.66,<5
+pytest>=8,<10
+

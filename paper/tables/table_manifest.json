@@ -1,0 +1,14 @@
+{
+  "source_raw_metrics": "C:\\Users\\24324\\Documents\\Codex\\2026-07-22\\ieee-aann-2026\\outputs\\full\\raw_metrics.csv",
+  "source_analysis_directory": "C:\\Users\\24324\\Documents\\Codex\\2026-07-22\\ieee-aann-2026\\outputs\\full\\analysis",
+  "generated_tables": [
+    "C:\\Users\\24324\\Documents\\Codex\\2026-07-22\\ieee-aann-2026\\paper\\tables\\table_1_experimental_design.csv",
+    "C:\\Users\\24324\\Documents\\Codex\\2026-07-22\\ieee-aann-2026\\paper\\tables\\table_2_conservative_prompt_effects.csv",
+    "C:\\Users\\24324\\Documents\\Codex\\2026-07-22\\ieee-aann-2026\\paper\\tables\\table_3_loco_vs_default.csv",
+    "C:\\Users\\24324\\Documents\\Codex\\2026-07-22\\ieee-aann-2026\\paper\\tables\\table_s1_variance_decomposition.csv",
+    "C:\\Users\\24324\\Documents\\Codex\\2026-07-22\\ieee-aann-2026\\paper\\tables\\table_s2_policy_summary.csv",
+    "C:\\Users\\24324\\Documents\\Codex\\2026-07-22\\ieee-aann-2026\\paper\\tables\\table_s3_selection_frequency.csv",
+    "C:\\Users\\24324\\Documents\\Codex\\2026-07-22\\ieee-aann-2026\\paper\\tables\\table_s4_prompt_extrema.csv"
+  ],
+  "markdown_compilation": "C:\\Users\\24324\\Documents\\Codex\\2026-07-22\\ieee-aann-2026\\paper\\tables\\paper_tables.md"
+}

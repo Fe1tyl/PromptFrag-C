@@ -1,0 +1,9 @@
+model,pretrained,criterion,prompt_id,prompt_template,value
+RN50,openai,highest_mean_accuracy,p06,the object depicted here is {label}.,0.5006973333333333
+RN50,openai,lowest_mean_accuracy,p11,"{label}, shown in a photograph.",0.3900426666666666
+RN50,openai,lowest_mean_ece,p00,a photo of a {label}.,0.0616449884985088
+RN50,openai,lowest_mean_aurc,p10,a natural image containing {label}.,0.3139114568201204
+ViT-B-32,openai,highest_mean_accuracy,p03,a picture showing {label}.,0.7201626666666666
+ViT-B-32,openai,lowest_mean_accuracy,p08,an example image of the class {label}.,0.6852106666666666
+ViT-B-32,openai,lowest_mean_ece,p00,a photo of a {label}.,0.0420307626399198
+ViT-B-32,openai,lowest_mean_aurc,p04,this image shows {label}.,0.109819847090204

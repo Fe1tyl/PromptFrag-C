@@ -1,0 +1,75 @@
+{
+  "status": "completed",
+  "started_at": "2026-07-24T14:11:52.565862+08:00",
+  "config_path": "C:\\Users\\24324\\Documents\\Codex\\2026-07-22\\ieee-aann-2026\\configs\\full.json",
+  "config": {
+    "data_root": "data",
+    "output_dir": "outputs/full",
+    "models": [
+      {
+        "name": "ViT-B-32",
+        "pretrained": "openai"
+      },
+      {
+        "name": "RN50",
+        "pretrained": "openai"
+      }
+    ],
+    "corruptions": [
+      "gaussian_noise",
+      "shot_noise",
+      "impulse_noise",
+      "defocus_blur",
+      "glass_blur",
+      "motion_blur",
+      "zoom_blur",
+      "snow",
+      "frost",
+      "fog",
+      "brightness",
+      "contrast",
+      "elastic_transform",
+      "pixelate",
+      "jpeg_compression"
+    ],
+    "severities": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "include_clean": true,
+    "batch_size": 64,
+    "num_workers": 4,
+    "sample_limit": null,
+    "seed": 20260723,
+    "ece_bins": 15,
+    "save_predictions": false,
+    "device": "cuda"
+  },
+  "source_sha256": "4723d6ec781bbdcc28f82629268e01bbc731ebc145a21c2c9c2d0d8b396e8800",
+  "environment_sensitive": true,
+  "environment": {
+    "python": "3.12.13 (main, Mar  3 2026, 15:01:35) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.9.1+cu128",
+    "torchvision": "0.24.1+cu128",
+    "open_clip_torch": "3.3.0",
+    "open_clip_module": "3.3.0",
+    "numpy": "2.5.1",
+    "gpu": {
+      "cuda_available": true,
+      "torch_cuda": "12.8",
+      "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+      "total_memory_bytes": 8546484224,
+      "compute_capability": [
+        12,
+        0
+      ],
+      "driver_version": "573.22",
+      "nvidia_smi_snapshot": "unavailable"
+    }
+  },
+  "completed_at": "2026-07-24T15:03:33.385914+08:00"
+}

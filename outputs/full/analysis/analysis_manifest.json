@@ -1,0 +1,51 @@
+{
+  "input": "C:\\Users\\24324\\Documents\\Codex\\2026-07-22\\ieee-aann-2026\\outputs\\full\\raw_metrics.csv",
+  "rows": 1976,
+  "models": [
+    "RN50",
+    "ViT-B-32"
+  ],
+  "corruptions": [
+    "brightness",
+    "contrast",
+    "defocus_blur",
+    "elastic_transform",
+    "fog",
+    "frost",
+    "gaussian_noise",
+    "glass_blur",
+    "impulse_noise",
+    "jpeg_compression",
+    "motion_blur",
+    "pixelate",
+    "shot_noise",
+    "snow",
+    "zoom_blur"
+  ],
+  "prompt_count": 12,
+  "stability_score": {
+    "formula": "mean_accuracy - 0.5*std_accuracy - 0.2*mean_ece",
+    "std_weight": 0.5,
+    "ece_weight": 0.2
+  },
+  "tables": [
+    "outputs\\full\\analysis\\prompt_summary.csv",
+    "outputs\\full\\analysis\\condition_summary.csv",
+    "outputs\\full\\analysis\\interaction_decomposition.csv",
+    "outputs\\full\\analysis\\statistical_tests.csv",
+    "outputs\\full\\analysis\\corruption_aggregated_tests.csv",
+    "outputs\\full\\analysis\\loco_selection.csv",
+    "outputs\\full\\analysis\\loco_selection_summary.csv",
+    "outputs\\full\\analysis\\policy_comparisons.csv"
+  ],
+  "figures": [
+    "outputs\\full\\analysis\\figures\\RN50_openai_accuracy_heatmap.png",
+    "outputs\\full\\analysis\\figures\\RN50_openai_severity_accuracy.png",
+    "outputs\\full\\analysis\\figures\\RN50_openai_accuracy_ece_scatter.png",
+    "outputs\\full\\analysis\\figures\\RN50_openai_prompt_accuracy_range.png",
+    "outputs\\full\\analysis\\figures\\ViT-B-32_openai_accuracy_heatmap.png",
+    "outputs\\full\\analysis\\figures\\ViT-B-32_openai_severity_accuracy.png",
+    "outputs\\full\\analysis\\figures\\ViT-B-32_openai_accuracy_ece_scatter.png",
+    "outputs\\full\\analysis\\figures\\ViT-B-32_openai_prompt_accuracy_range.png"
+  ]
+}

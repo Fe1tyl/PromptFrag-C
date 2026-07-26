@@ -1,0 +1,41 @@
+{
+  "data_root": "data",
+  "output_dir": "outputs/full",
+  "models": [
+    {
+      "name": "ViT-B-32",
+      "pretrained": "openai"
+    },
+    {
+      "name": "RN50",
+      "pretrained": "openai"
+    }
+  ],
+  "corruptions": [
+    "gaussian_noise",
+    "shot_noise",
+    "impulse_noise",
+    "defocus_blur",
+    "glass_blur",
+    "motion_blur",
+    "zoom_blur",
+    "snow",
+    "frost",
+    "fog",
+    "brightness",
+    "contrast",
+    "elastic_transform",
+    "pixelate",
+    "jpeg_compression"
+  ],
+  "severities": [1, 2, 3, 4, 5],
+  "include_clean": true,
+  "batch_size": 64,
+  "num_workers": 4,
+  "sample_limit": null,
+  "seed": 20260723,
+  "ece_bins": 15,
+  "save_predictions": false,
+  "device": "cuda"
+}
+

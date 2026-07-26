@@ -1,0 +1,3 @@
+model,pretrained,clean_conditions,corruption_severity_conditions,corruption_types,severity_levels,paraphrastic_prompts,single_prompt_rows,ensemble_rows,images_per_condition
+RN50,openai,1,75,15,5,12,912,76,10000
+ViT-B-32,openai,1,75,15,5,12,912,76,10000

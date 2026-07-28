@@ -1,0 +1,3 @@
+model,pareto_prompt_ids,baseline_selected_prompt,baseline_is_pareto,unique_grid_selections,baseline_selection_share_20_grid_points,loco_selected_is_pareto_folds,loco_folds,loco_matches_all_corruption_selection_folds
+RN50,"p00, p04, p05, p06, p07, p10",p10,True,4,0.35,15,15,13
+ViT-B-32,"p00, p03, p04, p06, p10",p03,True,1,1.0,15,15,15

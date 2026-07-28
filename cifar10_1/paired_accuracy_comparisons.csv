@@ -1,0 +1,3 @@
+model,selected_prompt_id,default_prompt_id,accuracy_delta_selected_minus_default,paired_bootstrap_ci95_low,paired_bootstrap_ci95_high,selected_correct_default_wrong,default_correct_selected_wrong,exact_mcnemar_p,prompt_accuracy_min,prompt_accuracy_max,prompt_accuracy_range,external_oracle_prompt_id
+RN50,p10,p00,0.0025,-0.012,0.017,116,111,0.7907027887267075,0.56,0.639,0.07899999999999996,p06
+ViT-B-32,p03,p00,0.008,-0.001,0.017,48,32,0.09291188222054622,0.8,0.84,0.039999999999999925,p01

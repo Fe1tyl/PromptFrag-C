@@ -1,0 +1,35 @@
+{
+  "dataset": "CIFAR-10.1 v6",
+  "source_repository": "https://github.com/modestyachts/CIFAR-10.1",
+  "files": {
+    "cifar10.1_v6_data.npy": {
+      "url": "https://raw.githubusercontent.com/modestyachts/CIFAR-10.1/master/datasets/cifar10.1_v6_data.npy",
+      "sha256": "2997188e5816f5bd545dc77771b6227828c28146049fcecf3fa10775474cacc6",
+      "bytes": 6144128
+    },
+    "cifar10.1_v6_labels.npy": {
+      "url": "https://raw.githubusercontent.com/modestyachts/CIFAR-10.1/master/datasets/cifar10.1_v6_labels.npy",
+      "sha256": "ae40beda001693674edc94d925ee8268cfe68905f8f9aff800c8dcdfcd6c9448",
+      "bytes": 8128
+    }
+  },
+  "n_samples": 2000,
+  "class_counts": [
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200,
+    200
+  ],
+  "models": [
+    "ViT-B-32/openai",
+    "RN50/openai"
+  ],
+  "prompts": 12,
+  "default_prompt": "p00"
+}

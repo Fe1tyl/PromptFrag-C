@@ -1,0 +1,35 @@
+{
+  "input": "C:\\Users\\24324\\Documents\\Codex\\2026-07-22\\ieee-aann-2026\\outputs\\full\\raw_metrics.csv",
+  "objective_vector": {
+    "maximize": [
+      "mean_accuracy"
+    ],
+    "minimize": [
+      "sd_accuracy",
+      "mean_ece"
+    ]
+  },
+  "baseline_score": "mean_accuracy - 0.5*sd_accuracy - 0.2*mean_ece",
+  "weight_grid": {
+    "sd_weight_alpha": [
+      0.0,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "ece_weight_beta": [
+      0.0,
+      0.1,
+      0.2,
+      0.5,
+      1.0
+    ],
+    "points": 20
+  },
+  "outputs": [
+    "prompt_objectives_and_pareto.csv",
+    "weight_sensitivity_grid.csv",
+    "loco_pareto_audit.csv",
+    "paper_pareto_summary.csv"
+  ]
+}

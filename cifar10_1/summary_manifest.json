@@ -1,0 +1,9 @@
+{
+  "selection_rule": "Prompt selected only from CIFAR-10-C using the preregistered score; CIFAR-10.1 was not used for selection.",
+  "bootstrap_samples": 10000,
+  "paired_test": "exact McNemar/binomial test on discordant predictions",
+  "outputs": [
+    "paper_external_validation.csv",
+    "paired_accuracy_comparisons.csv"
+  ]
+}

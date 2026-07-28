@@ -91,6 +91,76 @@ non-empty and the environment check reports CUDA as available.
 The runner is resumable: completed model/corruption/severity conditions are
 skipped. Use `--overwrite` only when intentionally replacing an existing run.
 
+## 5. Run the revision analyses
+
+The CCSB revision adds two analyses requested during peer review:
+
+1. a three-objective Pareto audit and stability-score weight-sensitivity grid;
+2. an external natural-shift evaluation on CIFAR-10.1 v6.
+
+The Pareto audit uses the completed CIFAR-10-C metric table and does not rerun
+CLIP inference:
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\analyze_revision.py `
+  --input .\outputs\full\raw_metrics.csv `
+  --output-dir .\outputs\revision\pareto
+```
+
+The objective vector maximizes mean accuracy while minimizing accuracy standard
+deviation and mean ECE. The paper's prespecified score,
+`mean_accuracy - 0.5 * std_accuracy - 0.2 * mean_ECE`, is retained as one
+deployment preference rather than treated as a uniquely optimal definition of
+robustness. The sensitivity grid evaluates:
+
+- accuracy-SD weight `alpha` in `{0, 0.25, 0.5, 1}`;
+- mean-ECE weight `beta` in `{0, 0.1, 0.2, 0.5, 1}`.
+
+To run the independent natural-shift validation:
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\evaluate_cifar10_1.py `
+  --data-dir .\data\CIFAR-10.1 `
+  --output-dir .\outputs\revision\cifar10_1 `
+  --batch-size 64 `
+  --num-workers 0 `
+  --device cuda
+
+.\.venv\Scripts\python.exe .\scripts\summarize_cifar10_1.py `
+  --metrics .\outputs\revision\cifar10_1\metrics.csv `
+  --pareto-summary .\outputs\revision\pareto\paper_pareto_summary.csv `
+  --output-dir .\outputs\revision\cifar10_1 `
+  --bootstrap-samples 10000 `
+  --seed 20260728
+```
+
+`evaluate_cifar10_1.py` downloads the two public CIFAR-10.1 v6 NumPy files
+(approximately 6 MB in total) from the official dataset repository, validates
+their shapes and class balance, and records SHA-256 checksums. It evaluates the
+same 12 frozen prompts and two OpenAI-pretrained CLIP backbones used in the main
+study.
+
+The prompt is selected exclusively from CIFAR-10-C before CIFAR-10.1 is
+evaluated. CIFAR-10.1 is never used to tune the score, choose a prompt, or change
+the prompt inventory. The summary script reports paired bootstrap confidence
+intervals and an exact McNemar test for the selected prompt versus the default.
+
+### Revision-result checkpoints
+
+The checked revision run produced the following results:
+
+- RN50: the prespecified score selected `p10`; four prompts were selected across
+  the 20 weight combinations.
+- ViT-B/32: the prespecified score selected `p03`; `p03` was selected at all 20
+  weight combinations.
+- Every LOCO-selected prompt was Pareto-nondominated in all 15 held-out
+  corruption folds for both models.
+- On CIFAR-10.1 v6, the 12-prompt accuracy range was 7.90 percentage points for
+  RN50 and 4.00 points for ViT-B/32.
+- The CIFAR-10-C-selected prompts exceeded the default by 0.25 and 0.80
+  percentage points, respectively, but both paired 95% confidence intervals
+  included zero.
+
 ## Laptop-safe settings
 
 - Keep the laptop connected to power and use the dedicated-GPU/high-performance
@@ -118,6 +188,18 @@ skipped. Use `--overwrite` only when intentionally replacing an existing run.
 - `analysis/policy_comparisons.csv`: paired Wilcoxon policy comparisons with
   bootstrap confidence intervals plus within-model and global Holm correction;
 - `analysis/figures/*.png`: paper-ready figures at 300 DPI.
+- `revision/pareto/prompt_objectives_and_pareto.csv`: three-objective prompt
+  aggregates and Pareto-front membership;
+- `revision/pareto/weight_sensitivity_grid.csv`: selections over the 20
+  coefficient combinations;
+- `revision/pareto/loco_pareto_audit.csv`: fold-wise Pareto audit of LOCO
+  selections;
+- `revision/cifar10_1/metrics.csv`: CIFAR-10.1 metrics for all prompts and the
+  probability ensemble;
+- `revision/cifar10_1/paired_accuracy_comparisons.csv`: paired accuracy
+  intervals and exact McNemar results;
+- `revision/cifar10_1/*_predictions.npz`: compact per-example predictions used
+  by the paired comparison.
 
 ## Reproducibility rules
 
@@ -127,8 +209,11 @@ skipped. Use `--overwrite` only when intentionally replacing an existing run.
 - Full inference is treated as environment-sensitive. Accuracy-like metrics
   should match closely on a repeated run, while wall-clock time is not compared.
 - `run_manifest.json` records enough information to diagnose environment drift.
-- The stability score is fixed as:
-  `mean_accuracy - 0.5 * std_accuracy - 0.2 * mean_ECE`.
+- The original stability score remains fixed as
+  `mean_accuracy - 0.5 * std_accuracy - 0.2 * mean_ECE`; the revision reports
+  Pareto membership and coefficient sensitivity instead of presenting this
+  scalarization as uniquely optimal.
+- CIFAR-10.1 is an external validation set and is not used for prompt selection.
 
 See [docs/experiment_plan.md](docs/experiment_plan.md) for the preregistered
 design and limitations.
